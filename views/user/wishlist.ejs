@@ -1,0 +1,111 @@
+<%-include('../user/partials/user-header.ejs') -%>
+
+	<!-- breadcrumb
+	<div class="container">
+		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+				Home
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+
+			<span class="stext-109 cl4">
+				wishlist
+			</span>
+		</div>
+	</div>
+		 -->
+
+	<!-- Shoping Cart -->
+	<% if(items.products.length == 0 ){ %> 
+		<div class="col-12 text-center">
+            <img src="https://ibellstore.com/images/no-item-found-here.png" alt="no order" style="width: 400px; height:300px ;">
+          </div>
+		
+		<% }else{ %> 
+			
+	<form class="bg0 p-t-75 p-b-85">
+		<div class="container">
+			<div class="row">
+				<div class="col-10  m-lr-auto m-b-50">
+					<div class="m-l-25 m-r--38 m-lr-0-xl">
+						<div class="wrap-table-shopping-cart">
+							
+							<table class="table-shopping-cart" id="productCard" >
+								<tr class="table_head">
+									<th class="column-1"></th>
+									<th class="column-2">Product</th>
+									<th class="column-3">Price</th>
+									<th class="column-4"></th>
+									<th class="column-5"></th>
+								</tr>
+								<% items.products.forEach(function(product){ %> 
+								<tr class="table_row">
+									<td class="column-1">
+										<div class="how-itemcart1">
+											<img src='/thumbnails/<%= product.image[0] %>' alt="IMG">
+										</div>
+									</td>
+
+									<td class="column-2">
+										<a href="/productdetails/<%=product._id%>" style="color: black;"><%=product.productName %></a> 
+
+
+									<td class="column-3">
+										<%= product.price  %> 
+									</td>
+
+									<td class="column-4">
+										
+										</a>
+
+
+										<a href="/productdetails/<%=product._id%>" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 " >
+											<i class="zmdi zmdi-eye"></i>
+
+											<a  onclick="addToCart('<%=product._id %>','<%=product.price%>','<%=product.productName%>') "
+											 class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11  " >
+												<i class="zmdi zmdi-shopping-cart"></i>
+									</td>
+									<td class="column-5">
+										<a onclick="removeWishlist('<%=product._id %>')" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 " >
+											<i class="zmdi zmdi-delete "></i>
+									</td>
+								</tr>
+								<% } )%> 
+								
+							</table>
+							
+						</div>
+
+						<!-- <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+							<div class="flex-w flex-m m-r-20 m-tb-5">
+								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
+									
+								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+									Apply coupon
+								</div>
+							</div>
+
+							<div class="flex-c-m stext-101 cl2 size-119  p-lr-15 trans-04 pointer m-tb-10">
+							TOTAL : 1234
+							</div>
+						</div> -->
+					</div>
+				</div>
+
+				
+				</div>
+				
+			</div>
+		</div>
+	</form>
+		
+
+
+			<% } %> 
+	
+		
+
+	<!-- Footer -->
+	<%-include('../user/partials/user-footer.ejs') -%>
+	

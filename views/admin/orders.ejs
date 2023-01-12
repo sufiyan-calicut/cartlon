@@ -1,0 +1,123 @@
+<%-include('../admin/partials/admin-header.ejs') -%>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <%-include('../admin/partials/admin-sidebar.ejs') -%>
+        <!-- start -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Order Details </h3>
+              <nav aria-label="breadcrumb">
+                 
+              </nav>
+            </div>
+            <div class="row">
+             
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"></h4>
+                    <p class="card-description"> <code></code>
+                    </p>
+              <div style="overflow-x: auto;">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Index</th>
+                      <th>Customer Name</th>
+                      <th>Address</th>
+                      <th>Product Name</th>
+                      <th>Ordered Date</th>
+                      <th>Order Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% orders.forEach(function(orders,index){%>
+                    <tr>
+                        <td><%=index+1 %></td>
+                      <td><%=orders.address.name%></td>
+                      <td><%=orders.address.address%></td>
+                      <td><% orders.items.forEach((o)=>{%>
+                        <%=o.productName  %> <br>
+                        <% }) %> 
+                      </td>
+                      <td><%=orders.createdAt.toLocaleDateString()%></td>
+                      <td><select id="OStatus<%=index%>" class="form-select" style="width: fit-content;" aria-label="Default select example" onchange="statusOrder('<%=orders._id%>','<%=index%>')">
+                        <option selected><%=orders.orderStatus%></option>
+                        <option value="processing">processing</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Delivered">Cancelled</option>
+                      </select></td>
+                      
+                    </tr>
+                    <%})%>
+                  </tbody>
+                </table>
+              </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div class="container-fluid d-flex justify-content-between">
+              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © CodersBench.com</span>
+              <span class="float-none float-sm-end mt-1 mt-sm-0 text-end">  <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"></a> </span>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/admin-assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/admin-assets/js/off-canvas.js"></script>
+    <script src="/admin-assets/js/hoverable-collapse.js"></script>
+    <script src="/admin-assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+
+</script>
+<script>
+  
+  function statusOrder(orderId, index) {
+    const status = $(`#OStatus${index}`).val()
+    console.log(orderId, status,'hiii');
+    $.ajax({
+      url: '/admin/status_change',
+      data: {
+        orderId,
+        status
+      },
+      method: 'post',
+      success: ((response) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Order Changed',
+          customClass: 'swal-wide',
+          showConfirmButton: false,
+          timer: 1000
+        }).then(()=>{
+          location.reload()
+        })
+        
+      })
+    })
+
+  }
+</script>
+  </body>
+</html>

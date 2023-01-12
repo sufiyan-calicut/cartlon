@@ -1,0 +1,211 @@
+<%-include('../user/partials/user-header.ejs') -%> 
+
+	
+	<!-- Product -->
+	<div class="bg0 m-t-50 p-b-140">
+		<div class="container">
+			<div class="flex-w flex-sb-m p-b-52">
+				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+						All Products
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+						<!-- Women -->
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+						<!-- Men -->
+					</button>
+
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".kids">
+						<!-- kids -->
+					</button>
+				</div>
+
+				<div class="flex-w flex-c-m m-tb-10">
+					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
+						<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
+						<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+						 Filter
+					</div>
+
+					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
+						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
+						<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+						Search
+					</div>
+				</div>
+				
+				<!-- Search product -->
+				<div class="dis-none panel-search w-full p-t-10 p-b-15">
+					<div class="bor8 dis-flex p-l-15">
+						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+							<i class="zmdi zmdi-search"></i>
+						</button>
+				<form action="/search" method="post">
+					<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="searchData" placeholder="Search">
+					<button type="submit " style="display: none;" ></button>
+				</form>
+					</div>	
+				</div>
+
+				<!-- Filter -->
+				<div class="dis-none panel-filter w-full p-t-10">
+					<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
+						<div class="filter-col1 p-r-15 p-b-27">
+							<div class="mtext-102 cl2 p-b-15">
+								Sort By
+							</div>
+
+							<ul>
+
+								<li class="p-b-6">
+									<a href="/lowtoHigh" class="filter-link stext-106 trans-04">
+										Price: Low to high
+									</a>
+								</input>
+								</li>
+
+								<li class="p-b-6">
+									<a href="/hightoLow" class="filter-link stext-106 trans-04">
+										Price: High to Low
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="filter-col2 p-r-15 p-b-27">
+							<div class="mtext-102 cl2 p-b-15">
+								Price
+							</div>
+
+							<ul>
+								<li class="p-b-6">
+									<a href="/products" class="filter-link stext-106 trans-04 filter-link-active">
+										All
+									</a>
+								</li>
+
+								<li class="p-b-6">
+									<a href="/two-to-five" class="filter-link stext-106 trans-04">
+										Rs : 2000.00 - 5000.00
+									</a>
+								</li>
+
+								<li class="p-b-6">
+									<a href="/five-to-fifteen" class="filter-link stext-106 trans-04">
+										Rs : 5000.00 - 15000.00
+									</a>
+								</li>
+
+								<li class="p-b-6">
+									<a href="/fifteen-to-twentyfive" class="filter-link stext-106 trans-04">
+										Rs : 15000.00 - 25000.00
+									</a>
+								</li>
+
+								<li class="p-b-6">
+									<a href="/twentyfive-to-thirtyfive" class="filter-link stext-106 trans-04">
+										Rs : 25000.00 - 35000.00
+									</a>
+								</li>
+
+								<li class="p-b-6">
+									<a href="/thirtyfive-to-above" class="filter-link stext-106 trans-04">
+										Rs : 35000.00+
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+
+						
+						</div>
+					</div>
+				</div>
+			</div>
+<div class="container col-sm-12 col-md-4 col-lg-3">
+	.
+
+
+		<div class="row isotope-grid" id="productCard" >
+				
+				<%products.forEach(function(products){%>
+				<div class=" col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">	
+					<!-- Block2 -->
+					<div class="block2">
+						
+							<div class="block2">
+								<div class="block2-pic hov-img0">
+									<img src="/thumbnails/<%=products.image[0]%>" alt="" style="height: 346px; ;">
+									
+									<a href="/productdetails/<%=products._id%>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+										Quick View
+									</a>
+								</div>
+		
+								<div class="block2-txt flex-w flex-t p-t-14">
+									<div class="block2-txt-child1 flex-col-l ">
+										<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+											<%=products.productName%>
+										</a>
+		
+										<span class="stext-105 cl3">
+											<%=products.price%>
+										</span>
+									</div>
+
+		
+									<% let inWishlist = wishlistItems.some(item => item._id.toString()
+									=== products._id.toString() ) %>
+									 <% if(inWishlist) { %>
+
+									
+									<button onclick="removeWishlist('<%=products._id %>')">
+										<img class="icon-heart1 dis-block trans-04"
+											src="/home-assets/images/icons/icon-heart-02.png" alt="ICON">
+									</button>
+
+									<% } else { %>
+
+										<button onclick="addtoWishlist('<%=products._id %>')">
+										<img class="icon-heart1 dis-block trans-04"
+											src="/home-assets/images/icons/icon-heart-01.png" alt="ICON">
+									</button>
+
+									<% } %>
+								</div>
+							</div>
+				</div>
+				</div>
+				<%})%>
+				
+			</div>
+
+			
+		</div>
+	
+					<nav aria-label="...">
+						<ul class="pagination pagination-md justify-content-center " style="align-self: unset;">
+							 
+							<% for( let i = 1 ; i <= pagination_count ; i++ ) { %> 
+								<% if (current_page == i) { %> 
+						<li class="page-item active mx-1"><a class="page-link pagination" href="/products/?page=<%= i %>"><%= i %></a></li>
+						<% }else{ %>
+							<li class="page-item mx-1 " ><a class="page-link pagination" href="/products/?page=<%= i %>"  style="border-radius: 10px;"><%= i %></a></li>
+							<% } %>  
+						<% } %> 
+						
+						</ul>
+			 		 </nav>
+		</div>
+	</div>
+		 
+    // <!-- footer -->
+	
+	
+   
+	<%-include('../user/partials/user-footer.ejs') -%> 
