@@ -14,6 +14,8 @@ module.exports = {
 
     admin: async (req, res) => {
         if (req.session.admin_loggedIn) {
+            await orderModel.deleteMany({$and:[{paymentMethod : "Razorpay"},{orderStatus : "Pending"}]})
+
             let adminName = req.session.adminName;
             let user = await userModel.find()
             let order = await orderModel.find()
