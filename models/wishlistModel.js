@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Objectid = mongoose.Types.ObjectId
+const mongoose = require("mongoose");
+const Objectid = mongoose.Types.ObjectId;
 
 
 const wishlistSchema = new mongoose.Schema({
@@ -15,4 +15,5 @@ const wishlistSchema = new mongoose.Schema({
     },
 })
 
-module.exports =  mongoose.model("Wishlist", wishlistSchema)
+// eslint-disable-next-line no-undef
+module.exports  = mongoose.model("Wishlist", wishlistSchema);

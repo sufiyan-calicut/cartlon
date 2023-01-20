@@ -1,14 +1,11 @@
 const bcrypt = require("bcrypt");
-// const session = require("express-session");
-// const { Promise } = require("mongoose");
 const userModel = require("../models/userModel");
-// const createEror = require("http-errors");
 const productModel = require("../models/productModel");
 const adminModel = require("../models/adminMode");
 const orderModel = require("../models/orderModel");
 const couponModel = require("../models/coupenModel");
 const BannerModel = require('../models/bannerModel');
-// const { findOneAndDelete } = require("../models/productModel");
+
 
 module.exports = {
     admin404: (req, res) => {

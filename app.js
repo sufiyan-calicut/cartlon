@@ -3,6 +3,8 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const session = require('express-session');
 const multer = require('multer')
+// eslint-disable-next-line no-unused-vars
+const mongoose = require("mongoose");
 require('dotenv').config()
 
 const homeRoute = require('./routes/user')
