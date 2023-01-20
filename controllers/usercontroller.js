@@ -957,7 +957,8 @@ module.exports = {
     let paymentStatus = payment === "cod" ? "Unpaid" : "Paid";
     let cart = await cartModel.findOne({ user_id: userId })
     let totalProduct = cart.items.length
-    let amount = cart.subtotal == 0 ? cart.total : cart.subtotal
+    let amounts = cart.subtotal == 0 ? cart.total : cart.subtotal
+    let amount = Math.floor(amounts)
     const userOrder = {
       address: {
         name: address.fullName,

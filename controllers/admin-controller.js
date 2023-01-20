@@ -310,8 +310,9 @@ module.exports = {
 
     editCoupon: async (req, res) => {
         let Coupon_id = req.params.id
+        let adminName = "sufi"
         let coupon = await couponModel.findOne({ _id: Coupon_id })
-        res.render("admin/editCoupon", { coupon })
+        res.render("admin/editCoupon", { coupon ,adminName })
     },
 
     updateCoupon: async (req, res) => {
