@@ -157,7 +157,8 @@ async function changeAdress(index) {
               }).then((result) => {
                 /* Read more about handling dismissals below */
                 if (result.dismiss === Swal.DismissReason.timer) {
-                  console.log('I was closed by the timer')
+                  // 'I was closed by the timer'
+        
                 }
               })
       

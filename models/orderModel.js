@@ -1,31 +1,8 @@
 
-// // dummy storage
-
-// const mongoose = require('mongoose')
-
-// const orderSchema = new mongoose.Schema({
-//     customerName : {
-//         type : String,
-        
-//     },
-//     productName :{
-//        type  : String
-//     },
-//     address : {
-//         type : String
-//     },
-//     orderStatus : {
-//         type : String,
-//         default : "placed"
-//     }
-// },{timestamps : true})
-
-// module.exports = orderModel = mongoose.model('orders',orderSchema);
-
 
 
 const mongoose = require('mongoose');
-const Objectid = mongoose.Types.ObjectId
+
 
 
 const oderSchema = new mongoose.Schema({
@@ -79,7 +56,7 @@ const oderSchema = new mongoose.Schema({
 },{ timestamps: true });
 
 
-module.exports = order = mongoose.model("orders", oderSchema)
+module.exports =  mongoose.model("orders", oderSchema)
 
 
 

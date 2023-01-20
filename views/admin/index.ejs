@@ -20,15 +20,16 @@
                 </ul>
               </nav>
             </div>
-             <div class="row">
-              <div class="col-md-4 stretch-card grid-margin">
+
+            <div class="row"style="margin-top: 50px;">
+              <div class="col-md-4 stretch-card grid-margin" >
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="/admin-assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Weekly Sales <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">$ 15,0000</h2>
-                    <h6 class="card-text">Increased by 60%</h6>
+                    <h2 class="mb-5">$ <%=total %> </h2>
+                    <h6 class="card-text"></h6>
                   </div>
                 </div>
               </div>
@@ -38,8 +39,8 @@
                     <img src="/admin-assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5"><%= user  %> </h2>
-                    <h6 class="card-text">Decreased by 10%</h6>
+                    <h2 class="mb-5"><%= order.length  %> </h2>
+                    <h6 class="card-text"></h6>
                   </div>
                 </div>
               </div>
@@ -47,14 +48,147 @@
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
                     <img src="/admin-assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Visitors Online <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">Total Users <i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">95,5741</h2>
-                    <h6 class="card-text">Increased by 5%</h6>
+                    <h2 class="mb-5"><%= user.length  %></h2>
+                    <h6 class="card-text"></h6>
                   </div>
                 </div>
               </div>
             </div>
+            <h6 id="online" style="display: none;"> <%=online%></h6>
+            <h6 id="cod" style="display: none;"> <%=cod%></h6>
+
+
+            <div class="row">
+              <div class="col-md-12 col-lg-6">
+                <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+              </div> 
+              <div class="col-md-12 col-lg-6">
+                <canvas id="linegraph" style="width:100%;max-width:600px"></canvas>
+                  </div>
+              </div>
+            </div>
+               
+
+           
+
+            <br>
+ 
+       
+           
+
+
+            <div class="" style="margin-top: -20px;">
+              <div class="content-wrapper">
+                <div class="page-header">
+                  <h3 class="page-title">New Orders </h3>
+                  <nav aria-label="breadcrumb">
+                     
+                  </nav>
+                </div>
+                <div class="row">
+                 
+                  <div class="col-lg-12 grid-margin stretch-card" >
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title"></h4>
+                        <p class="card-description"> <code></code>
+                        </p>
+                  <div style="overflow-x: auto;">
+                    <table class="table table-hover" >
+                      <thead>
+                        <tr>
+                          <th>Index</th>
+                          <th>Customer Name</th>
+                          <th>Address</th>
+                          <th>Product Name</th>
+                          
+                          <th>Order Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% lastOrder.forEach((order,index)=>{ %>
+
+                      
+                        <tr>
+                            <td><%= index+1 %> </td>
+                          <td><%= order.address.name %></td>
+                          <td><%=order.address.city  %> </td>
+                          <td>
+                           Cartlon 
+                          </td>
+                          <td><%=order.orderStatus  %> </td>
+                        
+                          
+                        </tr>
+                        <%  }) %>  
+                      </tbody>
+                    </table>
+                  </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <script>
+                let online = document.getElementById('online').innerHTML
+                let cod = document.getElementById('cod').innerHTML
+               
+                var xValues = ["Online Payment", "Cash on Delivery"];
+                var yValues = [online, cod];
+                var barColors = [
+                  "#b91d47",
+                  "#00aba9",
+                  "#2b5797",
+                  "#e8c3b9",
+                  "#1e7145"
+                ];
+                
+                new Chart("myChart", {
+                  type: "doughnut",
+                  data: {
+                    labels: xValues,
+                    datasets: [{
+                      backgroundColor: barColors,
+                      data: yValues
+                    }]
+                  },
+                  options: {
+                    title: {
+                      display: true,
+                      text: "Sales"
+                    }
+                  }
+                });
+                </script>
+
+
+
+<script>
+  var xValues = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  var yValues = [55, 49, 44, 24, 25];
+  var barColors = ["red", "green","blue","orange","brown"];
+  
+  new Chart("linegraph", {
+    type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: "Pending sale"
+      }
+    }
+  });
+  </script>
+       
             <!-- <div class="row">
               <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">

@@ -1,8 +1,8 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+let mongoose = require("mongoose");
+let Schema = mongoose.Schema;
 const Objectid = mongoose.Types.ObjectId
 
-var cartSchema = new Schema({
+let cartSchema = new Schema({
     user_id: {
         type: Objectid,
         ref: "userdetails"

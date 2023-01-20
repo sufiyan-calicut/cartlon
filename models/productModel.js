@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Objectid = mongoose.Types.ObjectId
+
 const productSchema = new mongoose.Schema({
   
     productName: {
@@ -33,4 +33,4 @@ const productSchema = new mongoose.Schema({
 
 })
 
-module.exports = ProductModel = mongoose.model('ProductData', productSchema);
+module.exports =  mongoose.model('ProductData', productSchema);

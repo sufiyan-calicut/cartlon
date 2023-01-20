@@ -2,6 +2,12 @@
 
 	
 	<!-- Product -->
+	<% if(products.length == 0 ){ %> 
+		<div class="col-12 text-center">
+            <img src="https://ibellstore.com/images/no-item-found-here.png" alt="no order" style="width: 400px; height:300px ;">
+          </div>
+		
+		<% }else{ %> 
 	<div class="bg0 m-t-50 p-b-140">
 		<div class="container">
 			<div class="flex-w flex-sb-m p-b-52">
@@ -157,27 +163,43 @@
 											<%=products.price%>
 										</span>
 									</div>
-
-		
-									<% let inWishlist = wishlistItems.some(item => item._id.toString()
-									=== products._id.toString() ) %>
-									 <% if(inWishlist) { %>
-
+								
+									<div style="  
+								    position: absolute;
+									right: 39px;
+									top: 358px;
+									z-index: 1;
+								                 ">
+										<a  onclick="addToCart('<%=products._id %>','<%=products.price%>','<%=products.productName%>') "
+											class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11  " >
+											   <i class="zmdi zmdi-shopping-cart"></i>
+											   </a> </div>
+										<% let inWishlist = wishlistItems.some(item => item._id.toString()
+										=== products._id.toString() ) %>
+										 <% if(inWishlist) { %>
+	
+										
+										<button onclick="removeWishlist('<%=products._id %>')">
+											<img class="icon-heart1 dis-block trans-04"
+												src="/home-assets/images/icons/icon-heart-02.png" alt="ICON">
+										</button>
+	
+										<% } else { %>
+	
+											<button onclick="addtoWishlist('<%=products._id %>')">
+											<img class="icon-heart1 dis-block trans-04"
+												src="/home-assets/images/icons/icon-heart-01.png" alt="ICON">
+										</button>
+	
+										<% } %>
+										
 									
-									<button onclick="removeWishlist('<%=products._id %>')">
-										<img class="icon-heart1 dis-block trans-04"
-											src="/home-assets/images/icons/icon-heart-02.png" alt="ICON">
-									</button>
 
-									<% } else { %>
-
-										<button onclick="addtoWishlist('<%=products._id %>')">
-										<img class="icon-heart1 dis-block trans-04"
-											src="/home-assets/images/icons/icon-heart-01.png" alt="ICON">
-									</button>
-
-									<% } %>
 								</div>
+								
+								
+								</div>
+							
 							</div>
 				</div>
 				</div>
@@ -204,8 +226,8 @@
 		</div>
 	</div>
 		 
-    // <!-- footer -->
+    // footer
 	
-	
+	<% } %>
    
 	<%-include('../user/partials/user-footer.ejs') -%> 

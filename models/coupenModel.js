@@ -32,4 +32,4 @@ const coupenSchema = new mongoose.Schema({
     }
 })
 
-module.exports = coupenModel = mongoose.model('CoupenData', coupenSchema);
+module.exports = mongoose.model('CoupenData', coupenSchema);
