@@ -6,6 +6,7 @@ const multer = require('multer')
 // eslint-disable-next-line no-unused-vars
 const mongoose = require("mongoose");
 require('dotenv').config()
+const db = require('./configuration/connection')
 
 const homeRoute = require('./routes/user')
 const adminRoute = require('./routes/admin');
@@ -15,6 +16,7 @@ app.set('views',path.join(__dirname,"/views"))
 app.set('view engine',"ejs")
 
 app.use(express.static(path.join(__dirname,"public")))
+db.connect()
 /*eslint-enable */
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
