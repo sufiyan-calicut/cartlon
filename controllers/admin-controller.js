@@ -25,11 +25,12 @@ module.exports = {
             let online = 0;
             // eslint-disable-next-line no-unused-vars
             let cod = 0;
+            console.log(order)
             order.forEach((o) => {
                 if (o.paymentMethod == "Razorpay") {
-                    online += 1;
+                    online += o.totalAmount;
                 } else {
-                    cod += 1
+                    cod += o.totalAmount;
                 }
             })
             sales.forEach((s) => {
