@@ -44,11 +44,11 @@ router.post("/decrement/:id",controller.cartDecrement)
 // Sort
 router.get("/lowtoHigh",controller.sortLowtoHigh)
 router.get("/hightoLow",controller.sortHightoLow)
-router.get("/two-to-five",controller.two_to_five)
-router.get("/five-to-fifteen",controller.five_to_fifteen)
-router.get("/fifteen-to-twentyfive",controller.fifteen_to_twentyfive)
-router.get("/twentyfive-to-thirtyfive",controller.twentyfive_to_thirtyfive)
-router.get("/thirtyfive-to-above",controller.thirtyfive_to_above)
+router.get("/two-to-four",controller.two_to_five)
+router.get("/four-to-six",controller.five_to_fifteen)
+router.get("/six-to-eight",controller.fifteen_to_twentyfive)
+router.get("/eight-to-thousand",controller.twentyfive_to_thirtyfive)
+router.get("/above-thousand",controller.thirtyfive_to_above)
 
 // Wishlist
 router.get("/wishlist",controller.getWishlist)

@@ -1,6 +1,11 @@
 <%-include('../user/partials/user-header.ejs') -%> 
 
+<% if(!products || products.length == 0) {%>
+	<div class="col-12 text-center">
+		<img src="https://ibellstore.com/images/no-item-found-here.png" alt="no order" style="width: 400px; height:300px ;">
+	  </div>
 	
+	<% }else{ %>
 	<!-- Product -->
 	<div class="bg0 m-t-50 p-b-140">
 		<div class="container">
@@ -89,32 +94,32 @@
 								</li>
 
 								<li class="p-b-6">
-									<a href="/two-to-five" class="filter-link stext-106 trans-04">
-										Rs : 2000.00 - 5000.00
+									<a href="/two-to-four" class="filter-link stext-106 trans-04">
+										Rs : 200.00 - 400.00
 									</a>
 								</li>
 
 								<li class="p-b-6">
-									<a href="/five-to-fifteen" class="filter-link stext-106 trans-04">
-										Rs : 5000.00 - 15000.00
+									<a href="/four-to-six" class="filter-link stext-106 trans-04">
+										Rs : 400.00 - 600.00
 									</a>
 								</li>
 
 								<li class="p-b-6">
-									<a href="/fifteen-to-twentyfive" class="filter-link stext-106 trans-04">
-										Rs : 15000.00 - 25000.00
+									<a href="/six-to-eight" class="filter-link stext-106 trans-04">
+										Rs : 600.00 - 800.00
 									</a>
 								</li>
 
 								<li class="p-b-6">
-									<a href="/twentyfive-to-thirtyfive" class="filter-link stext-106 trans-04">
-										Rs : 25000.00 - 35000.00
+									<a href="/eight-to-thousand" class="filter-link stext-106 trans-04">
+										Rs : 800.00 - 1000.00
 									</a>
 								</li>
 
 								<li class="p-b-6">
-									<a href="/thirtyfive-to-above" class="filter-link stext-106 trans-04">
-										Rs : 35000.00+
+									<a href="/above-thousand" class="filter-link stext-106 trans-04">
+										Rs : 1000.00+
 									</a>
 								</li>
 							</ul>
@@ -213,7 +218,7 @@
 		</div>
 	</div>
 		 
-    
+    <% } %> 
 	
 	
    

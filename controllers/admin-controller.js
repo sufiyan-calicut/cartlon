@@ -104,7 +104,7 @@ module.exports = {
                     res.redirect("/admin/banner");
                 })
                 .catch((err) => {
-                    console.log(err);
+                    console.log(err.message);
 
                     res.redirect("/admin/addBanner");
                 });

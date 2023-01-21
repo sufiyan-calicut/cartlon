@@ -290,7 +290,7 @@ module.exports = {
       .limit(product_limit)
 
     let pagination =
-      (await productModel.find({ block: false }).countDocuments()) /
+      (await productModel .find({ productName: { $regex: new RegExp("^" + searchData + ".*", "i") } }).countDocuments()) /
       product_limit;
     let pagination_count = Math.ceil(pagination);
 
@@ -449,15 +449,15 @@ module.exports = {
     }
 
     let products = await productModel
-      .find({ $and: [{ block: false }, { price: { $lte: 2000, $gte: 5000 } }] })
+      .find({ $and: [{ block: false }, { price: { $lte: 400, $gte: 200 } }] })
       .skip((page - 1) * product_limit)
       .limit(product_limit)
       .sort({ price: 1 });
-
+// eslint-disable-next-line no-unused-vars
     let pagination =
       (await productModel.find({ block: false }).countDocuments()) /
       product_limit;
-    let pagination_count = Math.ceil(pagination);
+    let pagination_count = 0;
 
     res.render("user/product", {
       logged,
@@ -485,15 +485,15 @@ module.exports = {
     }
 
     let products = await productModel
-      .find({ $and: [{ block: false }, { price: { $lte: 5000, $gte: 15000 } }] })
+      .find({ $and: [{ block: false }, { price: { $lte: 600, $gte: 400 } }] })
       .skip((page - 1) * product_limit)
       .limit(product_limit)
       .sort({ price: 1 });
-
+// eslint-disable-next-line no-unused-vars
     let pagination =
       (await productModel.find({ block: false }).countDocuments()) /
       product_limit;
-    let pagination_count = Math.ceil(pagination);
+    let pagination_count = 0;
 
     res.render("user/product", {
       logged,
@@ -521,15 +521,15 @@ module.exports = {
     }
 
     let products = await productModel
-      .find({ $and: [{ block: false }, { price: { $lte: 25000, $gte: 15000 } }] })
+      .find({ $and: [{ block: false }, { price: { $lte: 800, $gte: 600 } }] })
       .skip((page - 1) * product_limit)
       .limit(product_limit)
       .sort({ price: 1 });
-
+// eslint-disable-next-line no-unused-vars
     let pagination =
       (await productModel.find({ block: false }).countDocuments()) /
       product_limit;
-    let pagination_count = Math.ceil(pagination);
+    let pagination_count = 0;
 
     res.render("user/product", {
       logged,
@@ -557,15 +557,15 @@ module.exports = {
     }
 
     let products = await productModel
-      .find({ $and: [{ block: false }, { price: { $lte: 35000, $gte: 25000 } }] })
+      .find({ $and: [{ block: false }, { price: { $lte: 1000, $gte: 800 } }] })
       .skip((page - 1) * product_limit)
       .limit(product_limit)
       .sort({ price: 1 });
-
+// eslint-disable-next-line no-unused-vars
     let pagination =
       (await productModel.find({ block: false }).countDocuments()) /
       product_limit;
-    let pagination_count = Math.ceil(pagination);
+    let pagination_count = 0;
 
     res.render("user/product", {
       logged,
@@ -593,15 +593,16 @@ module.exports = {
     }
 
     let products = await productModel
-      .find({ $and: [{ block: false }, { price: { $gte: 35000 } }] })
+      .find({ $and: [{ block: false }, { price: { $gte: 1000 } }] })
       .skip((page - 1) * product_limit)
       .limit(product_limit)
       .sort({ price: 1 });
 
+    // eslint-disable-next-line no-unused-vars
     let pagination =
       (await productModel.find({ block: false }).countDocuments()) /
       product_limit;
-    let pagination_count = Math.ceil(pagination);
+    let pagination_count =0 ;
 
     res.render("user/product", {
       logged,
