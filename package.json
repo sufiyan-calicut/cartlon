@@ -2,9 +2,9 @@
   "name": "cartlon-swiss-watches",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon ./app"
+    "start": "nodemon"
   },
   "author": "",
   "license": "ISC",

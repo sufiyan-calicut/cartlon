@@ -1273,7 +1273,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .item-slick1 {
-  height: calc(100vh - 40px);
+  height: calc(100vh - 100px);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
