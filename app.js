@@ -42,5 +42,5 @@ const fileStorage=multer.diskStorage({
 app.use(multer({storage: fileStorage}).array("image", 10));
 app.use('/',homeRoute)
 app.use('/admin',adminRoute)
-const PORT = 4000
+const PORT = 3000
 app.listen(PORT,console.log(`server started on port ${PORT}`))
